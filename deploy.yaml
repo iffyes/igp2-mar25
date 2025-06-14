@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xyz-tech-deploy
+spec:
+  selector:
+    matchLabels:
+      app: xyz_deploy
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: xyz_deploy
+    spec:
+      containers:
+        - name: xyz-app
+          image: irfanalc/xyz_tech:latest
+          ports:
+            - containerPort: 8080
